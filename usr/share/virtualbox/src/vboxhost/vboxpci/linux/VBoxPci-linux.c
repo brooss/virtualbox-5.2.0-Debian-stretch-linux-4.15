@@ -80,7 +80,7 @@ MODULE_VERSION(VBOX_VERSION_STRING " r" RT_XSTR(VBOX_SVN_REV));
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 20)
 # define PCI_DEV_GET(v,d,p)            pci_get_device(v,d,p)
 # define PCI_DEV_PUT(x)                pci_dev_put(x)
-# define PCI_DEV_GET_SLOT(bus, devfn)  pci_get_bus_and_slot(bus, devfn)
+# define PCI_DEV_GET_SLOT(bus, devfn)  pci_get_domain_bus_and_slot(0, bus, devfn)
 #else
 # define PCI_DEV_GET(v,d,p)            pci_find_device(v,d,p)
 # define PCI_DEV_PUT(x)                do { } while (0)
